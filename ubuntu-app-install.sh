@@ -3,9 +3,14 @@
 # App instaler script for Ubuntu x86 (64bit)
 
 ############################
+# Update
+############################
+sudo apt update
+
+############################
 # Typical applications install
 ############################
-sudo apt install openssh-server vim git -y
+sudo apt install openssh-server gzip vim git -y
 
 ############################
 # Asbrú install
@@ -15,7 +20,6 @@ sudo apt-add-repository multiverse -y
 sudo apt install -y curl
 curl -1sLf 'https://dl.cloudsmith.io/public/asbru-cm/release/cfg/setup/bash.deb.sh' | sudo -E bash
 sudo apt install asbru-cm -y
-
 
 ############################
 # Visual Studio Code install
@@ -53,7 +57,6 @@ sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
 echo [INFO] $(aws --version)
 rm awscliv2.zip
 
-
 ############################
 # Tailscale install
 ############################
@@ -74,6 +77,11 @@ sudo apt install ansible -y
 echo [INFO] $(ansible --version)
 
 ############################
+# Podman install
+############################
+sudo apt install podman -y
+
+############################
 # Docker install
 ############################
 # web: https://docs.docker.com/engine/install/ubuntu/
@@ -87,27 +95,27 @@ echo [INFO] $(ansible --version)
 # Docker Engine is compatible with x86_64 (or amd64), armhf, arm64, and s390x architectures.
 
 ## 1. Update the apt package index and install packages to allow apt to use a repository over HTTPS
-echo "[INFO] Update the apt package index and install packages to allow apt to use a repository over HTTPS"
-sudo apt update
-sudo apt install ca-certificates curl gnupg lsb-release -y
+#echo "[INFO] Update the apt package index and install packages to allow apt to use a repository over HTTPS"
+#sudo apt update
+#sudo apt install ca-certificates curl gnupg lsb-release -y
 ## 2. Add Docker’s official GPG key
-echo "[INFO] Add Docker’s official GPG key"
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+#echo "[INFO] Add Docker’s official GPG key"
+#sudo mkdir -p /etc/apt/keyrings
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 ## 3. Use the following command to set up the repository
-echo "[INFO] Set up the repository"
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+#echo "[INFO] Set up the repository"
+#echo \
+#  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+#  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ## 4. Update the apt package index
-echo "[INFO] Update the apt package index"
-sudo apt update
+#echo "[INFO] Update the apt package index"
+#sudo apt update
 ## 5. Install Docker Engine, containerd, and Docker Compose
-echo "[INFO] Install Docker Engine, containerd, and Docker Compose"
-sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-compose -y
+#echo "[INFO] Install Docker Engine, containerd, and Docker Compose"
+#sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-compose -y
 ## 6. Add your user to the docker group
-USER = nico
-echo "[INFO] Add your user to the docker group"
-sudo usermod -aG docker $USER
+#USER = nico
+#echo "[INFO] Add your user to the docker group"
+#sudo usermod -aG docker $USER
 ## 7. Check version
-echo [INFO] $(docker --version)
+#echo [INFO] $(docker --version)

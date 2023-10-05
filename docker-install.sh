@@ -13,8 +13,8 @@
 
 ## 1. Update the apt package index and install packages to allow apt to use a repository over HTTPS
 echo "[INFO] Update the apt package index and install packages to allow apt to use a repository over HTTPS"
-sudo apt update
-sudo apt install ca-certificates curl gnupg lsb-release
+sudo apt update -y
+sudo apt install ca-certificates curl gnupg lsb-release -y
 
 ## 2. Add Docker’s official GPG key
 echo "[INFO] Add Docker’s official GPG key"
@@ -29,11 +29,11 @@ echo \
 
 ## 4. Update the apt package index
 echo "[INFO] Update the apt package index"
-sudo update
+sudo apt update -y
 
 ## 5. Install Docker Engine, containerd, and Docker Compose
 echo "[INFO] Install Docker Engine, containerd, and Docker Compose"
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-compose
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin docker-compose -y
 
 ## 6. Add your user to the docker group
 echo "[INFO] Add your user to the docker group"

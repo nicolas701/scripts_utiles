@@ -19,7 +19,7 @@ sudo apt install ca-certificates curl gnupg lsb-release -y
 ## 2. Add Docker’s official GPG key
 echo "[INFO] Add Docker’s official GPG key"
 sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --yes --dearmor -o /etc/apt/keyrings/docker.gpg
 
 ## 3. Use the following command to set up the repository
 echo "[INFO] Set up the repository"
